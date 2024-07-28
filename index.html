@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Forecasts</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,34 +12,46 @@
             margin: 0;
             padding: 20px;
         }
-        .container {
-            display: flex;
+        .header {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 0 auto 20px;
         }
-        .text-content {
-            flex: 1;
-            padding-right: 20px;
+        .pagination {
+            margin-top: 10px;
+            margin-bottom: 40px; 
         }
-        .image-content {
-            flex: 2;
+        .pagination button {
+            padding: 5px 10px;
+            margin-right: 5px;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+        .graph-container {
+            max-width: 1000px;
+            margin: 40px auto; 
+        }
+        #budget-graph {
+            width: 100%;
+            height: 800px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="text-content">
-            <h1>Past forecasts</h1>
-            <p>Even that may be an understatement. In the last 30 years, about 80 percent of four-year deficit forecasts have been too optimistic.</p>
-            <p>The early Clinton budgets — which failed to predict the surpluses that were generated, in part, by a stock market bubble — are the only major exception.</p>
+    <header class="header">
+        <h1>College Student Loan Crisis</h1>
+        <p>As the average college student debt seems to be balloning into unmanageable proportions, but how bad is it really? Data was sourced from the Education Data Initiative and Self. All findings were adjusted for inflation.</p>
+        <div class="pagination">
+            <button id="btn1">Student Debt</button>
+            <button id="btn2">Starting Salary</button>
+            <button id="btn3">Debt-to-Income Ratio</button>
+            <button id="btn4">Expenditures</button>
+            <button id="btn5">Expenses-to-Income Ratio</button>
+            <button id="btn6">Debt-Plus-Expenses-to-Income Ratio</button>
+
+
         </div>
-        <div class="image-content">
-            <img src="forecast-graph.jpg" alt="Graph showing past forecasts from 1982 to 2020">
+        
+        <div class="graph-container">
+            <div id="budget-graph"></div>        
         </div>
-    </div>
+            <script src="budgetGraph.js"></script>
 </body>
 </html>
